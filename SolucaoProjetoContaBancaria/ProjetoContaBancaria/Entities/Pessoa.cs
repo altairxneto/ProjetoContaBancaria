@@ -19,7 +19,16 @@ namespace ContaBancaria.Entities
             DataDeNascimento = dataDeNascimento;
             EstadoCivil = estadoCivil;
             TimeSpan calcularDiasDeVidaDaPessoa = DateTime.Now.Subtract(DataDeNascimento);
-            Idade = (int)calcularDiasDeVidaDaPessoa.TotalDays/365;
+            Idade = CalcularIdade(dataDeNascimento);
+        }
+
+        public int CalcularIdade(DateTime dataDeNascimento) {
+            int idade = DateTime.Now.Year - dataDeNascimento.Year;
+            if(DateTime.Now.DayOfYear < dataDeNascimento.DayOfYear) {
+                idade -= 1;
+            }
+
+            return idade;
         }
     }
 }
