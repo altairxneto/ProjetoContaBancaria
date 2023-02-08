@@ -10,6 +10,7 @@ namespace ContaBancaria.Entities
         public Sexo Sexo { get; set; }
         public DateTime DataDeNascimento { get; private set; }
         public EstadoCivil EstadoCivil { get; private set; }
+        public ContaBancaria Conta { get; private set; }
 
         public Pessoa(string nome, string nomeDoPai, string nomeDaMae, Sexo sexo, DateTime dataDeNascimento, EstadoCivil estadoCivil) {
             Nome = nome;
