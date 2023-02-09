@@ -4,6 +4,7 @@ using ProjetoContaBancaria.Entities.Excecoes;
 namespace ProjetoContaBancaria.Entities {
     public class ContaBancaria {
         public int NumeroConta { get; private set; }
+        public double SaldoConta { get; private set; }
         public AgenciaBancaria Agencia { get; private set; }
 
         public ContaBancaria() { }
@@ -11,6 +12,7 @@ namespace ProjetoContaBancaria.Entities {
         public ContaBancaria(int numeroConta, AgenciaBancaria agencia) {
             NumeroConta = numeroConta;
             Agencia = agencia;
+            SaldoConta = 0;
         }
 
         public void GerarNumeroConta() {
@@ -65,6 +67,10 @@ namespace ProjetoContaBancaria.Entities {
             catch(Excecao excecao) {
                 Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao);
             }
+        }
+
+        public void Deposito(double valor) {
+            SaldoConta += valor;
         }
     }
 }
