@@ -1,6 +1,6 @@
-﻿using ContaBancaria.Entities.Excecoes;
+﻿using ProjetoContaBancaria.Entities.Excecoes;
 
-namespace ContaBancaria.Entities {
+namespace ProjetoContaBancaria.Entities {
     public class ContaBancaria {
         public int NumeroConta { get; private set; }
         public int AgenciaConta { get; private set; }
@@ -21,19 +21,31 @@ namespace ContaBancaria.Entities {
                 int numeroConta = 0;
                 StreamWriter sw;
 
+                //Este contador vai servir para me dizer se, alguma conta que já foi de alguém e agora está zerada, vai ser atribuída novamente para outra pessoa
+                int contadorAnulador = 0;
+
                 for (int contador = 0; contador < linhasDoArquivo.Length; contador++) {
-                    if (linhasDoArquivo[contador] == "0") {
+                    if (linhasDoArquivo[contador] == "0" && !(contador == linhasDoArquivo.Length - 1)) {
                         if (contador == 0) {
                             numeroConta++;
 
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
+                            
+                            contadorAnulador++;
                         }
 
                         if (contador != 0) {
                             numeroConta = int.Parse(linhasDoArquivo[contador - 1]) + 1;
 
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
+
+                            contadorAnulador++;
                         }
+                    }
+                    else if (linhasDoArquivo[contador] == "0" && contador == linhasDoArquivo.Length - 1 && contadorAnulador == 0) {
+                        numeroConta = int.Parse(linhasDoArquivo[contador - 1]) + 1;
+
+                        linhasDoArquivoReescrito[contador] = numeroConta.ToString();
                     }
                     else {
                         linhasDoArquivoReescrito[contador] = linhasDoArquivo[contador];
@@ -44,8 +56,9 @@ namespace ContaBancaria.Entities {
                     foreach (string line in linhasDoArquivoReescrito) {
                         sw.WriteLine(line);
                     }
-
-                    sw.WriteLine("0");
+                    if(contadorAnulador == 0) {
+                        sw.WriteLine("0");
+                    }
                 }
             }
             catch(Excecao excecao) {

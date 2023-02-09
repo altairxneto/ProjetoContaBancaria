@@ -1,7 +1,7 @@
 ﻿
-using ContaBancaria.Entities.Enums;
+using ProjetoContaBancaria.Entities.Enums;
 
-namespace ContaBancaria.Entities {
+namespace ProjetoContaBancaria.Entities {
     internal class ContaBancariaPessoaFisica:ContaBancaria {
         public TipoDeConta TipoDeConta { get; private set; }
     }

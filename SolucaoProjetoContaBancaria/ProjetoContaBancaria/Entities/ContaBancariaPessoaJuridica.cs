@@ -1,5 +1,5 @@
 ﻿
-namespace ContaBancaria.Entities {
+namespace ProjetoContaBancaria.Entities {
     internal class ContaBancariaPessoaJuridica:ContaBancaria {
     }
 }

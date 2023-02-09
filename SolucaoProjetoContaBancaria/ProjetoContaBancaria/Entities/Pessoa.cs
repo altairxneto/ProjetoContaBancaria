@@ -1,6 +1,6 @@
 ﻿using ProjetoContaBancaria.Entities.Enums;
 
-namespace ContaBancaria.Entities
+namespace ProjetoContaBancaria.Entities
 {
     public class Pessoa {
         public string Nome { get; set; }
