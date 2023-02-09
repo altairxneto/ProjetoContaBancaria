@@ -9,23 +9,40 @@ namespace ContaBancaria.Entities {
             AgenciaConta = agenciaConta;
         }
 
-        public int GerarNumeroConta() {
-            string pathContadorNumeroDeContas = "C:\\Users\\Laboratorio 3D\\Desktop\\MeusProjetos\\ProjetoContaBancaria\\SolucaoProjetoContaBancaria\\ProjetoContaBancaria\\BancoDeDados\\ContadorNumeroDeContas.txt";
+        public void GerarNumeroConta() {
+            string pathNumerosDeContas = "C:\\Users\\Laboratorio 3D\\Desktop\\MeusProjetos\\ProjetoContaBancaria\\SolucaoProjetoContaBancaria\\ProjetoContaBancaria\\BancoDeDados\\NumerosDeContas.txt";
+            string[] linhasDoArquivo = File.ReadAllLines(pathNumerosDeContas);
+            string[] linhasDoArquivoReescrito =  new string[linhasDoArquivo.Length];
 
-            string[] linhasDoContador = File.ReadAllLines(pathContadorNumeroDeContas);
+            int numeroConta = 0;
+            StreamWriter sw;
 
-            int variavelAuxiliar = 0;
+            for (int contador = 0; contador < linhasDoArquivo.Length; contador++) {
+                if (linhasDoArquivo[contador] == "0") {
+                    if (contador == 0) {
+                        numeroConta++;
 
-            foreach(string line in linhasDoContador) {
-                variavelAuxiliar += int.Parse(line);
+                        linhasDoArquivoReescrito[contador] = numeroConta.ToString();
+                    }
+
+                    if (contador != 0) {
+                        numeroConta = int.Parse(linhasDoArquivo[contador - 1]) + 1;
+
+                        linhasDoArquivoReescrito[contador] = numeroConta.ToString();
+                    }
+                }
+                else {
+                    linhasDoArquivoReescrito[contador] = linhasDoArquivo[contador];
+                }
             }
 
-            int numero = 1 + variavelAuxiliar;
+            using(sw = File.CreateText(pathNumerosDeContas)) {
+                foreach(string line in linhasDoArquivoReescrito) {
+                    sw.WriteLine(line);
+                }
 
-            using (StreamWriter sr = File.AppendText(pathContadorNumeroDeContas)) {
-                sr.WriteLine(1);
+                sw.WriteLine("0");
             }
-            return numero;
         }
     }
 }
