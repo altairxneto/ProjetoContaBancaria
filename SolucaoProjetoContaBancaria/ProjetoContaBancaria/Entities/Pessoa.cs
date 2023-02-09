@@ -12,6 +12,8 @@ namespace ProjetoContaBancaria.Entities
         public EstadoCivil EstadoCivil { get; private set; }
         public ContaBancaria Conta { get; private set; }
 
+        public Pessoa() { }
+
         public Pessoa(string nome, string nomeDoPai, string nomeDaMae, Sexo sexo, DateTime dataDeNascimento, EstadoCivil estadoCivil) {
             Nome = nome;
             NomeDoPai = nomeDoPai;
@@ -21,8 +23,6 @@ namespace ProjetoContaBancaria.Entities
             EstadoCivil = estadoCivil;
             TimeSpan calcularDiasDeVidaDaPessoa = DateTime.Now.Subtract(DataDeNascimento);
             Idade = CalcularIdade(dataDeNascimento);
-            
-            
         }
 
         public int CalcularIdade(DateTime dataDeNascimento) {

@@ -17,7 +17,7 @@ namespace ProjetoContaBancaria.Entities {
 
         public void GerarNumeroConta() {
             try {
-                string pathNumerosDeContas = "C:\\Users\\Laboratorio 3D\\Desktop\\MeusProjetos\\ProjetoContaBancaria\\SolucaoProjetoContaBancaria\\ProjetoContaBancaria\\BancoDeDados\\NumerosDeContas.txt";
+                string pathNumerosDeContas = "C:\\Program Files\\Conta Bancaria Projeto\\BancoDeDados\\NumerosDeContas.txt";
                 string[] linhasDoArquivo = File.ReadAllLines(pathNumerosDeContas);
                 string[] linhasDoArquivoReescrito = new string[linhasDoArquivo.Length];
 
@@ -28,7 +28,7 @@ namespace ProjetoContaBancaria.Entities {
                 int contadorAnulador = 0;
 
                 for (int contador = 0; contador < linhasDoArquivo.Length; contador++) {
-                    if (linhasDoArquivo[contador] == "0" && !(contador == linhasDoArquivo.Length - 1)) {
+                    if ((linhasDoArquivo[contador] == "0" && !(contador == linhasDoArquivo.Length - 1)) || (linhasDoArquivo[contador] == "0" && linhasDoArquivo.Length == 1)) {
                         if (contador == 0) {
                             numeroConta++;
 
@@ -59,12 +59,15 @@ namespace ProjetoContaBancaria.Entities {
                     foreach (string line in linhasDoArquivoReescrito) {
                         sw.WriteLine(line);
                     }
-                    if(contadorAnulador == 0) {
+                    if(contadorAnulador == 0 || (linhasDoArquivo.Length == 1 && contadorAnulador > 0)) {
                         sw.WriteLine("0");
                     }
                 }
             }
             catch(Excecao excecao) {
+                Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao);
+            }
+            catch(Exception excecao) {
                 Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao);
             }
         }
@@ -75,6 +78,11 @@ namespace ProjetoContaBancaria.Entities {
 
         public void Saque(double valor) {
             SaldoConta -= valor;
+        }
+
+        public void ExtratoBancario() {
+            string pathExtratoBancario = "C:\\Program Files\\Conta Bancaria Projeto\\ComprovantesBancarios\\ExtratosBancarios";
+
         }
     }
 }
