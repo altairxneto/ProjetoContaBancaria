@@ -72,5 +72,9 @@ namespace ProjetoContaBancaria.Entities {
         public void Deposito(double valor) {
             SaldoConta += valor;
         }
+
+        public void Saque(double valor) {
+            SaldoConta -= valor;
+        }
     }
 }
