@@ -74,10 +74,14 @@ namespace ProjetoContaBancaria.Entities {
 
         public void Deposito(double valor) {
             SaldoConta += valor;
+
+
         }
 
         public void Saque(double valor) {
             SaldoConta -= valor;
+            //tenho que pensar sobre isso, porque vou ter que criar o diterório, e não somente colocar o caminho aqui
+            string pathComprovanteSaque = "C:\\Program Files\\Conta Bancaria Projeto\\ComprovantesBancarios\\ComprovanteSaque";
         }
 
         public void ExtratoBancario() {
