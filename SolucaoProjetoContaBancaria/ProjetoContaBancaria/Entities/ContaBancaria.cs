@@ -5,6 +5,8 @@ namespace ContaBancaria.Entities {
         public int NumeroConta { get; private set; }
         public int AgenciaConta { get; private set; }
 
+        public ContaBancaria() { }
+
         public ContaBancaria(int numeroConta, int agenciaConta) {
             NumeroConta = numeroConta;
             AgenciaConta = agenciaConta;
