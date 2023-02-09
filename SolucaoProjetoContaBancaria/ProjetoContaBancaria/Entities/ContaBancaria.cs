@@ -65,10 +65,10 @@ namespace ProjetoContaBancaria.Entities {
                 }
             }
             catch(Excecao excecao) {
-                Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao);
+                Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao.Message);
             }
             catch(Exception excecao) {
-                Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao);
+                Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao.Message);
             }
         }
 
