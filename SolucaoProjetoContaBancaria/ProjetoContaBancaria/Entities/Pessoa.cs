@@ -21,6 +21,8 @@ namespace ProjetoContaBancaria.Entities
             EstadoCivil = estadoCivil;
             TimeSpan calcularDiasDeVidaDaPessoa = DateTime.Now.Subtract(DataDeNascimento);
             Idade = CalcularIdade(dataDeNascimento);
+            
+            
         }
 
         public int CalcularIdade(DateTime dataDeNascimento) {

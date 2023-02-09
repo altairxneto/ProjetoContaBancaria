@@ -1,15 +1,16 @@
-﻿using ProjetoContaBancaria.Entities.Excecoes;
+﻿using ProjetoContaBancaria.Entities.Enums;
+using ProjetoContaBancaria.Entities.Excecoes;
 
 namespace ProjetoContaBancaria.Entities {
     public class ContaBancaria {
         public int NumeroConta { get; private set; }
-        public int AgenciaConta { get; private set; }
+        public AgenciaBancaria Agencia { get; private set; }
 
         public ContaBancaria() { }
 
-        public ContaBancaria(int numeroConta, int agenciaConta) {
+        public ContaBancaria(int numeroConta, AgenciaBancaria agencia) {
             NumeroConta = numeroConta;
-            AgenciaConta = agenciaConta;
+            Agencia = agencia;
         }
 
         public void GerarNumeroConta() {
