@@ -32,8 +32,8 @@ namespace ProjetoContaBancaria.Services {
                 if (!System.IO.Directory.Exists(pathPastaBancoDeDados)) {
                     Directory.CreateDirectory(pathPastaBancoDeDados);
 
-                    File.Create("C:\\Users\\" + nomeUsuario + "\\Documents\\Conta Bancaria Projeto\\BancoDeDados\\NumerosDeContas.txt");
-                    using (StreamWriter sw = File.AppendText("C:\\Program Files\\Conta Bancaria Projeto\\BancoDeDados\\NumerosDeContas.txt")) {
+                    File.Create("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt");
+                    using (StreamWriter sw = File.AppendText("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
                         Console.Write("0");
                     }
 
