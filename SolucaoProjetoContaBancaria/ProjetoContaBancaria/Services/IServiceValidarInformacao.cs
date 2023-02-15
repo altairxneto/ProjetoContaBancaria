@@ -1,5 +1,5 @@
 ﻿namespace ProjetoContaBancaria.Services {
-    public interface IServiceValidarInformacao<T> {
-        public bool ValidarInformacao(T informacao);
+    public interface IServiceValidarInformacao {
+        public bool ValidarInformacao();
     }
 }
