@@ -81,7 +81,7 @@ namespace ProjetoContaBancaria.Entities {
             }
         }
 
-        public void GerarComprovante(string path) {
+        public void GerarComprovante(string path, string nomeDoComprovante) {
 
         }
 
