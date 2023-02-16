@@ -37,8 +37,6 @@ namespace ProjetoContaBancaria.Entities {
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
                             
                             contadorAnulador++;
-
-                            return numeroConta.ToString();
                         }
 
                         if (contador != 0) {
@@ -47,8 +45,6 @@ namespace ProjetoContaBancaria.Entities {
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
 
                             contadorAnulador++;
-
-                            return numeroConta.ToString();
                         }
 
                     }
@@ -56,13 +52,9 @@ namespace ProjetoContaBancaria.Entities {
                         numeroConta = int.Parse(linhasDoArquivo[contador - 1]) + 1;
 
                         linhasDoArquivoReescrito[contador] = numeroConta.ToString();
-
-                        return numeroConta.ToString();
                     }
                     else {
                         linhasDoArquivoReescrito[contador] = linhasDoArquivo[contador];
-
-                        return numeroConta.ToString();
                     }
                 }
 
