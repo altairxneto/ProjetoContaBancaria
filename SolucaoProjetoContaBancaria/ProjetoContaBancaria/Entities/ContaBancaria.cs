@@ -1,5 +1,6 @@
 ﻿using ProjetoContaBancaria.Entities.Enums;
 using ProjetoContaBancaria.Entities.Excecoes;
+using System.Globalization;
 
 namespace ProjetoContaBancaria.Entities {
     public class ContaBancaria {
@@ -81,8 +82,23 @@ namespace ProjetoContaBancaria.Entities {
             }
         }
 
-        public void GerarComprovante(string path, string nomeDoComprovante) {
+        public void GerarComprovante(Pessoa pessoa ,string path, string nomeDoComprovante, double valorDoComprovante) {
+            FileStream fs = new FileStream(path, FileMode.CreateNew);
+            fs.Close();
 
+            DateTime date = DateTime.Now;
+
+            using(StreamWriter sw = File.AppendText(path)) {
+                sw.Write("--------------------------------------------------------");
+                sw.Write(nomeDoComprovante.ToUpper());
+                sw.Write("--------------------------------------------------------");
+
+                sw.Write("Data e hora do comprovante: " + date.ToString("dd/MM/yyyy às HH:mm:ss"));
+                sw.Write("Titular da conta: " + pessoa.Nome);
+                sw.Write("Agencia: " + Agencia);
+                sw.Write("Conta: " + NumeroConta);
+                sw.Write("Valor da transação: R$" + valorDoComprovante.ToString("F2", CultureInfo.InvariantCulture));
+            }
         }
 
         public void Deposito(double valor) {
