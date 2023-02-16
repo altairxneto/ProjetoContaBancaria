@@ -9,7 +9,7 @@ namespace ProjetoContaBancaria.Entities {
 
         public ContaBancaria() { }
 
-        public ContaBancaria(int numeroConta, AgenciaBancaria agencia) {
+        public ContaBancaria(AgenciaBancaria agencia) {
             NumeroConta = int.Parse(GerarNumeroConta());
             Agencia = agencia;
             SaldoConta = 0;
