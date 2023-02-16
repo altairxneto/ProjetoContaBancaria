@@ -25,8 +25,11 @@ namespace ProjetoContaBancaria.Services {
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
 
                     Console.WriteLine("A pasta do projeto Conta Bancaria foi criada!");
+
+                    Console.BackgroundColor = ConsoleColor.DarkCyan;
                     Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
@@ -44,12 +47,15 @@ namespace ProjetoContaBancaria.Services {
 
                     Console.WriteLine("A pasta Banco de Dados do projeto Conta Bancaria foi criada!");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
 
                     Console.ReadLine();
                 }
+
+                Console.Clear();
 
                 if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
                     ConsoleColor cor = Console.BackgroundColor;
@@ -65,6 +71,7 @@ namespace ProjetoContaBancaria.Services {
 
                     Console.WriteLine("O banco de dados foi criado.");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
@@ -81,8 +88,11 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioSaque);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Saques foi criada!");
+
+                    Console.BackgroundColor = ConsoleColor.DarkCyan;
                     Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteSaque");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
@@ -99,8 +109,11 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioDeposito);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Deposito foi criada!");
+
+                    Console.BackgroundColor = ConsoleColor.DarkCyan;
                     Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteDeposito");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
@@ -117,8 +130,11 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioExtrato);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Extrato foi criada!");
+
+                    Console.BackgroundColor = ConsoleColor.DarkCyan;
                     Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ExtratosBancarios");
 
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Aperter ENTER para continuar!");
 
                     Console.BackgroundColor = cor;
