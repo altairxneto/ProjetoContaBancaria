@@ -17,7 +17,9 @@ namespace ProjetoContaBancaria.Entities {
 
         public string GerarNumeroConta() {
             try {
-                string pathNumerosDeContas = "C:\\Program Files\\Conta Bancaria Projeto\\BancoDeDados\\NumerosDeContas.txt";
+                string nomeUsuario = Environment.UserName;
+
+                string pathNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
                 string[] linhasDoArquivo = File.ReadAllLines(pathNumerosDeContas);
                 string[] linhasDoArquivoReescrito = new string[linhasDoArquivo.Length];
 
