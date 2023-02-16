@@ -2,7 +2,7 @@
 using ProjetoContaBancaria.Entities.Excecoes;
 
 namespace ProjetoContaBancaria.Services {
-    public class ServiceValidarCriacaoDePastasDoProjeto:IServiceValidarInformacao {
+    public class ServiceValidarCriacaoDePastasDoProjeto : IServiceValidarInformacao {
         public void ValidarInformacao() {
             //Identificando em qual usuário está logado no computador
             string nomeUsuario = Environment.UserName;
@@ -20,7 +20,7 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaContaBancaria);
 
                     Console.WriteLine("A pasta do projeto Conta Bancaria foi criada!");
-                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Disco Local C -> Arquivos de Programas -> Conta Bancaria Projeto");
+                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto");
 
                     Console.WriteLine("Aperter ENTER para continuar!");
 
@@ -32,12 +32,23 @@ namespace ProjetoContaBancaria.Services {
                 if (!System.IO.Directory.Exists(pathPastaBancoDeDados)) {
                     Directory.CreateDirectory(pathPastaBancoDeDados);
 
-                    File.Create("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt");
-                    using (StreamWriter sw = File.AppendText("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
-                        Console.Write("0");
+                    Console.WriteLine("A pasta Banco de Dados do projeto Conta Bancaria foi criada!");
+
+                    Console.WriteLine("Aperter ENTER para continuar!");
+
+                    Console.ReadLine();
+                }
+
+                if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
+                    string pathArquivoNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
+                    FileStream arquivo = new FileStream(pathArquivoNumerosDeContas, FileMode.CreateNew);
+                    arquivo.Close();
+
+                    using (StreamWriter sw = File.AppendText(pathArquivoNumerosDeContas)) {
+                        sw.Write("0");
                     }
 
-                    Console.WriteLine("A pasta Banco de Dados do projeto Conta Bancaria foi criada!");
+                    Console.WriteLine("O banco de dados foi criado.");
 
                     Console.WriteLine("Aperter ENTER para continuar!");
 
@@ -50,7 +61,7 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioSaque);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Saques foi criada!");
-                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Disco Local C -> Arquivos de Programas -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteSaque");
+                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteSaque");
 
                     Console.WriteLine("Aperter ENTER para continuar!");
 
@@ -63,7 +74,7 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioDeposito);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Deposito foi criada!");
-                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Disco Local C -> Arquivos de Programas -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteDeposito");
+                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ComprovanteDeposito");
 
                     Console.WriteLine("Aperter ENTER para continuar!");
 
@@ -76,7 +87,7 @@ namespace ProjetoContaBancaria.Services {
                     Directory.CreateDirectory(pathPastaComprovanteBancarioExtrato);
 
                     Console.WriteLine("A pasta de comprovantes bancários de Extrato foi criada!");
-                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Disco Local C -> Arquivos de Programas -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ExtratosBancarios");
+                    Console.WriteLine("Para acessar a pasta, entre no Explorador de Arquivos -> Documentos -> Conta Bancaria Projeto -> Comprovantes Bancarios -> ExtratosBancarios");
 
                     Console.WriteLine("Aperter ENTER para continuar!");
 
