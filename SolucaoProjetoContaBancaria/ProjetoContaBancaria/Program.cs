@@ -6,9 +6,12 @@ using ProjetoContaBancaria.Services;
 namespace ProjetoContaBancaria {
     class Program {
         static void Main(string[] args) {
-            IServiceValidarInformacao validar = new ServiceValidarCriacaoDePastasDoProjeto();
+            IServiceValidarInformacao validacaoDePastas = new ServiceValidarCriacaoDePastas();
+            validacaoDePastas.ValidarInformacao();
 
-            validar.ValidarInformacao();
+            ContaBancaria conta = new ContaBancaria();
+
+            Console.WriteLine(conta.GerarNumeroConta());
         }
     }
 }

@@ -2,7 +2,7 @@
 using ProjetoContaBancaria.Entities.Excecoes;
 
 namespace ProjetoContaBancaria.Services {
-    public class ServiceValidarCriacaoDePastasDoProjeto : IServiceValidarInformacao {
+    public class ServiceValidarCriacaoDePastas : IServiceValidarInformacao {
         public void ValidarInformacao() {
             //Identificando em qual usuário está logado no computador
             string nomeUsuario = Environment.UserName;

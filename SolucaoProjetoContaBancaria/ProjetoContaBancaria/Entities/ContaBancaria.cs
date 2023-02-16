@@ -10,12 +10,12 @@ namespace ProjetoContaBancaria.Entities {
         public ContaBancaria() { }
 
         public ContaBancaria(int numeroConta, AgenciaBancaria agencia) {
-            NumeroConta = numeroConta;
+            NumeroConta = int.Parse(GerarNumeroConta());
             Agencia = agencia;
             SaldoConta = 0;
         }
 
-        public void GerarNumeroConta() {
+        public string GerarNumeroConta() {
             try {
                 string pathNumerosDeContas = "C:\\Program Files\\Conta Bancaria Projeto\\BancoDeDados\\NumerosDeContas.txt";
                 string[] linhasDoArquivo = File.ReadAllLines(pathNumerosDeContas);
@@ -35,6 +35,8 @@ namespace ProjetoContaBancaria.Entities {
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
                             
                             contadorAnulador++;
+
+                            return numeroConta.ToString();
                         }
 
                         if (contador != 0) {
@@ -43,15 +45,22 @@ namespace ProjetoContaBancaria.Entities {
                             linhasDoArquivoReescrito[contador] = numeroConta.ToString();
 
                             contadorAnulador++;
+
+                            return numeroConta.ToString();
                         }
+
                     }
                     else if (linhasDoArquivo[contador] == "0" && contador == linhasDoArquivo.Length - 1 && contadorAnulador == 0) {
                         numeroConta = int.Parse(linhasDoArquivo[contador - 1]) + 1;
 
                         linhasDoArquivoReescrito[contador] = numeroConta.ToString();
+
+                        return numeroConta.ToString();
                     }
                     else {
                         linhasDoArquivoReescrito[contador] = linhasDoArquivo[contador];
+
+                        return numeroConta.ToString();
                     }
                 }
 
@@ -63,13 +72,23 @@ namespace ProjetoContaBancaria.Entities {
                         sw.WriteLine("0");
                     }
                 }
+
+                return numeroConta.ToString();
             }
             catch(Excecao excecao) {
                 Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao.Message);
+
+                return null;
             }
             catch(Exception excecao) {
                 Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao.Message);
+
+                return null;
             }
+        }
+
+        public void GerarComprovante(string path) {
+
         }
 
         public void Deposito(double valor) {
