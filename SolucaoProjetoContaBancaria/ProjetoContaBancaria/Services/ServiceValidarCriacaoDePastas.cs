@@ -8,11 +8,11 @@ namespace ProjetoContaBancaria.Services {
             string nomeUsuario = Environment.UserName;
 
             //Identificando todos os paths de pastas
-            string pathPastaContaBancaria = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto";
-            string pathPastaBancoDeDados = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados";
-            string pathPastaComprovanteBancarioSaque = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteSaque";
-            string pathPastaComprovanteBancarioDeposito = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteDeposito";
-            string pathPastaComprovanteBancarioExtrato = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\ComprovantesBancarios\\ExtratosBancarios";
+            string pathPastaContaBancaria = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto";
+            string pathPastaBancoDeDados = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados";
+            string pathPastaComprovanteBancarioSaque = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteSaque";
+            string pathPastaComprovanteBancarioDeposito = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteDeposito";
+            string pathPastaComprovanteBancarioExtrato = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\ComprovantesBancarios\\ExtratosBancarios";
 
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -57,11 +57,11 @@ namespace ProjetoContaBancaria.Services {
 
                 Console.Clear();
 
-                if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
+                if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
                     ConsoleColor cor = Console.BackgroundColor;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
 
-                    string pathArquivoNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
+                    string pathArquivoNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
                     FileStream arquivo = new FileStream(pathArquivoNumerosDeContas, FileMode.CreateNew);
                     arquivo.Close();
 
