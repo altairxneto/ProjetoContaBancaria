@@ -89,9 +89,9 @@ namespace ProjetoContaBancaria.Entities {
             DateTime date = DateTime.Now;
 
             using(StreamWriter sw = File.AppendText(path)) {
-                sw.Write("--------------------------------------------------------");
+                sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
                 sw.Write(nomeDoComprovante.ToUpper());
-                sw.Write("--------------------------------------------------------");
+                sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 
                 sw.Write("Data e hora do comprovante: " + date.ToString("dd/MM/yyyy às HH:mm:ss"));
                 sw.Write("Titular da conta: " + pessoa.Nome);
