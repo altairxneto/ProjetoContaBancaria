@@ -18,6 +18,8 @@ namespace ProjetoContaBancaria.Services {
 
             //Verificando se existe e caso não, criando os paths das pastas que serão utilizadas
             try {
+
+                //criando a pasta bancaria
                 if (!System.IO.Directory.Exists(pathPastaContaBancaria)) {
                     Directory.CreateDirectory(pathPastaContaBancaria);
 
@@ -39,6 +41,7 @@ namespace ProjetoContaBancaria.Services {
 
                 Console.Clear();
 
+                //criando a pasta de banco de dados
                 if (!System.IO.Directory.Exists(pathPastaBancoDeDados)) {
                     Directory.CreateDirectory(pathPastaBancoDeDados);
 
@@ -57,6 +60,7 @@ namespace ProjetoContaBancaria.Services {
 
                 Console.Clear();
 
+                //criando o arquivo de números de contas
                 if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt")) {
                     ConsoleColor cor = Console.BackgroundColor;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -80,6 +84,7 @@ namespace ProjetoContaBancaria.Services {
                 }
 
                 Console.Clear();
+                //informando que a pasta de comprovante de saque foi criada
 
                 if (!System.IO.Directory.Exists(pathPastaComprovanteBancarioSaque)) {
                     ConsoleColor cor = Console.BackgroundColor;
@@ -102,6 +107,7 @@ namespace ProjetoContaBancaria.Services {
 
                 Console.Clear();
 
+                //informando que a pasta de comprovante de depósito foi criada
                 if (!System.IO.Directory.Exists(pathPastaComprovanteBancarioDeposito)) {
                     ConsoleColor cor = Console.BackgroundColor;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -123,6 +129,7 @@ namespace ProjetoContaBancaria.Services {
 
                 Console.Clear();
 
+                //informando que a pasta de extrato bancario foi criada
                 if (!System.IO.Directory.Exists(pathPastaComprovanteBancarioExtrato)) {
                     ConsoleColor cor = Console.BackgroundColor;
                     Console.BackgroundColor = ConsoleColor.DarkGreen;

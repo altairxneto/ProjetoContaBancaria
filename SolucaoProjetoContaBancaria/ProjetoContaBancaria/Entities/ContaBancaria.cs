@@ -90,7 +90,7 @@ namespace ProjetoContaBancaria.Entities {
 
             using(StreamWriter sw = File.AppendText(path)) {
                 sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-                sw.Write(nomeDoComprovante.ToUpper());
+                sw.Write("COMPROVANTE DE " + nomeDoComprovante.ToUpper());
                 sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 
                 sw.Write("Data e hora do comprovante: " + date.ToString("dd/MM/yyyy às HH:mm:ss"));
@@ -101,19 +101,36 @@ namespace ProjetoContaBancaria.Entities {
             }
         }
 
-        public void Deposito(double valor) {
+        public void Deposito(double valor, Pessoa pessoa) {
             SaldoConta += valor;
 
+            string nomeUsuario = Environment.UserName;
+            string pathPastaComprovanteBancarioDeposito = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteDeposito";
 
+            GerarComprovante(pessoa, pathPastaComprovanteBancarioDeposito, "DEPOSITO", valor);
+
+            Console.Write("O comprovante de depósito foi gerado!");
+            Console.WriteLine("Para acessar o comprovante, abra o explorador de arquivos do Windows, " +
+                "acesse a pasta de Downloads, acesse a pasta do projeto da Conta Bancaria, " +
+                "acesse a pasta de Comprovantes Bancarios e depois acesse a pasta de comprovantes de depósito.");
         }
 
-        public void Saque(double valor) {
+        public void Saque(double valor, Pessoa pessoa) {
             SaldoConta -= valor;
-            string pathComprovanteSaque = "C:\\Program Files\\Conta Bancaria Projeto\\ComprovantesBancarios\\ComprovanteSaque";
+
+            string nomeUsuario = Environment.UserName;
+            string pathPastaComprovanteBancarioSaque = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\ComprovantesBancarios\\ComprovanteSaque";
+
+            GerarComprovante(pessoa, pathPastaComprovanteBancarioSaque, "SAQUE", valor);
+
+            Console.Write("O comprovante de saque foi gerado!");
+            Console.WriteLine("Para acessar o comprovante, abra o explorador de arquivos do Windows, " +
+                "acesse a pasta de Downloads, acesse a pasta do projeto da Conta Bancaria, " +
+                "acesse a pasta de Comprovantes Bancarios e depois acesse a pasta de comprovantes de saque.");
         }
 
-        public void ExtratoBancario() {
-            string pathExtratoBancario = "C:\\Program Files\\Conta Bancaria Projeto\\ComprovantesBancarios\\ExtratosBancarios";
+        public void Transacoes() {
+            
 
         }
     }

@@ -4,6 +4,7 @@ namespace ProjetoContaBancaria.Entities
 {
     public class Pessoa {
         public string Nome { get; set; }
+        public int Cpf { get; private set; }
         public string NomeDoPai { get; set; }
         public string NomeDaMae { get; set; }
         public int Idade { get; private set; }
