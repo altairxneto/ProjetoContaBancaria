@@ -83,6 +83,25 @@ namespace ProjetoContaBancaria.Services {
                     Console.ReadLine();
                 }
 
+                //criando o arquivo de transações
+                if (!System.IO.File.Exists("C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\Transacoes.txt")) {
+                    ConsoleColor cor = Console.BackgroundColor;
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+
+                    string pathArquivoTransacoes = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\Transacoes.txt";
+                    FileStream arquivo = new FileStream(pathArquivoTransacoes, FileMode.CreateNew);
+                    arquivo.Close();
+
+                    Console.WriteLine("O arquivo de transações da conta foi criado.");
+
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Aperter ENTER para continuar!");
+
+                    Console.BackgroundColor = cor;
+
+                    Console.ReadLine();
+                }
+
                 Console.Clear();
                 //informando que a pasta de comprovante de saque foi criada
 
