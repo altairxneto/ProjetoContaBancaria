@@ -3,12 +3,12 @@
 namespace ProjetoContaBancaria.Entities
 {
     public class Pessoa {
-        public string Nome { get; set; }
+        public string Nome { get; private set; }
         public int Cpf { get; private set; }
-        public string NomeDoPai { get; set; }
-        public string NomeDaMae { get; set; }
+        public string NomeDoPai { get; private set; }
+        public string NomeDaMae { get; private set; }
         public int Idade { get; private set; }
-        public Sexo Sexo { get; set; }
+        public Sexo Sexo { get; private set; }
         public DateTime DataDeNascimento { get; private set; }
         public EstadoCivil EstadoCivil { get; private set; }
         public ContaBancaria Conta { get; private set; }
