@@ -6,11 +6,11 @@ namespace ProjetoContaBancaria.Entities {
     public class ContaBancaria {
         public int NumeroConta { get; private set; }
         public double SaldoConta { get; private set; }
-        public AgenciaBancaria Agencia { get; private set; }
+        public TipoAgenciaBancaria Agencia { get; private set; }
 
         public ContaBancaria() { }
 
-        public ContaBancaria(AgenciaBancaria agencia) {
+        public ContaBancaria(TipoAgenciaBancaria agencia) {
             NumeroConta = int.Parse(GerarNumeroConta());
             Agencia = agencia;
             SaldoConta = 0;
@@ -79,27 +79,6 @@ namespace ProjetoContaBancaria.Entities {
                 Console.WriteLine("Não foi possível gerar o número da conta, houve um erro: " + excecao.Message);
 
                 return null;
-            }
-        }
-
-        public void GerarComprovante(Pessoa pessoa ,string path, string nomeDoComprovante, double valorDoComprovante) {
-            FileStream fs = new FileStream(path, FileMode.CreateNew);
-            fs.Close();
-
-            DateTime date = DateTime.Now;
-
-            using(StreamWriter sw = File.AppendText(path)) {
-                sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-                sw.Write("COMPROVANTE DE " + nomeDoComprovante.ToUpper());
-                sw.Write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-
-                sw.Write("Data e hora do comprovante: " + date.ToString("dd/MM/yyyy às HH:mm:ss"));
-                sw.Write("Titular da conta: " + pessoa.Nome);
-                sw.Write("Agencia: " + Agencia);
-                sw.Write("Conta: " + NumeroConta);
-                sw.Write("Valor da transação: R$" + valorDoComprovante.ToString("F2", CultureInfo.InvariantCulture));
-                sw.WriteLine();
-                sw.WriteLine();
             }
         }
 

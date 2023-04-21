@@ -1,5 +1,5 @@
 ﻿namespace ProjetoContaBancaria.Entities.Enums {
-    public enum AgenciaBancaria:int {
+    public enum TipoAgenciaBancaria:int {
         AgenciaFisica = 110,
         AgenciaVirtual= 100
     }
