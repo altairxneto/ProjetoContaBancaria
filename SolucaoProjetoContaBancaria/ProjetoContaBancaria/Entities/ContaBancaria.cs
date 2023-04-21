@@ -131,12 +131,9 @@ namespace ProjetoContaBancaria.Entities {
                 "acesse a pasta de Comprovantes Bancarios e depois acesse a pasta de comprovantes de saque.");
         }
 
-        public void Transacoes(Pessoa pessoa, string nomeDoComprovante, double valorDoComprovante) {
+        public void GerarTransacoes(Pessoa pessoa, string nomeDoComprovante, double valorDoComprovante) {
             string nomeUsuario = Environment.UserName;
             string pathArquivoTransacoes = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\Transacoes.txt";
-
-            FileStream fs = new FileStream(pathArquivoTransacoes, FileMode.Create);
-            fs.Close();
 
             GerarComprovante(pessoa, pathArquivoTransacoes, nomeDoComprovante, valorDoComprovante);
         }
