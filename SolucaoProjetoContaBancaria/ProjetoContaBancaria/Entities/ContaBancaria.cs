@@ -20,7 +20,7 @@ namespace ProjetoContaBancaria.Entities {
             try {
                 string nomeUsuario = Environment.UserName;
 
-                string pathNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Documents\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
+                string pathNumerosDeContas = "C:\\Users\\" + nomeUsuario + "\\Downloads\\ContaBancariaProjeto\\BancoDeDados\\NumerosDeContas.txt";
                 string[] linhasDoArquivo = File.ReadAllLines(pathNumerosDeContas);
                 string[] linhasDoArquivoReescrito = new string[linhasDoArquivo.Length];
 
@@ -98,6 +98,8 @@ namespace ProjetoContaBancaria.Entities {
                 sw.Write("Agencia: " + Agencia);
                 sw.Write("Conta: " + NumeroConta);
                 sw.Write("Valor da transação: R$" + valorDoComprovante.ToString("F2", CultureInfo.InvariantCulture));
+                sw.WriteLine();
+                sw.WriteLine();
             }
         }
 
